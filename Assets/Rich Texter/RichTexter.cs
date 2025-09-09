@@ -15,6 +15,10 @@ namespace GG.RichTexter
         const string ItalicId = "i";
         const string SizeId = "size";
         const string ColorId = "color";
+        const string UnderlineId = "u";
+        const string StrikethroughId = "s";
+        const string SuperscriptId = "sup";
+        const string SubscriptId = "sub";
 
         readonly StringBuilder value = new StringBuilder();
 
@@ -90,6 +94,91 @@ namespace GG.RichTexter
             StartRtArea($"{ColorId}=#{color}");
             value.Append(message);
             EndRtArea(ColorId);
+            return this;
+        }
+
+        /// <summary>
+        /// Bolds the message
+        /// </summary>
+        /// <param name="message"></param>
+        public RichTexter AddBoldText(string message)
+        {
+            StartRtArea(BoldId);
+            value.Append(message);
+            EndRtArea(BoldId);
+            return this;
+        }
+
+        /// <summary>
+        /// Italicises the message
+        /// </summary>
+        /// <param name="message"></param>
+        public RichTexter AddItalicText(string message)
+        {
+            StartRtArea(ItalicId);
+            value.Append(message);
+            EndRtArea(ItalicId);
+            return this;
+        }
+
+        /// <summary>
+        /// Sizes the message
+        /// </summary>
+        /// <param name="size"></param>
+        /// <param name="message"></param>
+        public RichTexter AddSizedText(int size, string message)
+        {
+            StartRtArea($"{SizeId}={size}");
+            value.Append(message);
+            EndRtArea(SizeId);
+            return this;
+        }
+
+        /// <summary>
+        /// Underlines the message
+        /// </summary>
+        /// <param name="message"></param>
+        public RichTexter AddUnderlineText(string message)
+        {
+            StartRtArea(UnderlineId);
+            value.Append(message);
+            EndRtArea(UnderlineId);
+            return this;
+        }
+
+        /// <summary>
+        /// Strikes through the message
+        /// </summary>
+        /// <param name="message"></param>
+        public RichTexter AddStrikethroughText(string message)
+        {
+            StartRtArea(StrikethroughId);
+            value.Append(message);
+            EndRtArea(StrikethroughId);
+            return this;
+        }
+
+        /// <summary>
+        /// Superscripts the message
+        /// </summary>
+        /// <param name="message"></param>
+        public RichTexter AddSuperscriptText(string message)
+        {
+            StartRtArea(SuperscriptId);
+            value.Append(message);
+            EndRtArea(SuperscriptId);
+            return this;
+        }
+
+        /// <summary>
+        /// Subscripts the message
+        /// </summary>
+        /// <param name="message"></param>
+        public RichTexter AddSubscriptText(string message)
+        {
+            StartRtArea(SubscriptId);
+            value.Append(message);
+            EndRtArea(SubscriptId);
             return this;
         }
     }
